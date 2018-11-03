@@ -80,6 +80,7 @@ const Categories = [
             "DES Decrypt",
             "Triple DES Encrypt",
             "Triple DES Decrypt",
+            "DES Key Conversion",
             "RC2 Encrypt",
             "RC2 Decrypt",
             "RC4",

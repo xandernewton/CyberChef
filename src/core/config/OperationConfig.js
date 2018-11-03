@@ -1375,6 +1375,22 @@ const OperationConfig = {
             },
         ]
     },
+
+    "DES Key Conversion": {
+        module: "Ciphers",
+        description: "DES key conversion that converts a 56 bit DES key without parity bits to a 64 bit DES key with parity bits.<br><br> The 56 bit key is split into 8 groups of 7 bits and then a parity bit is added to each group (with odd parity) to form a key of 8 bytes.<br><br><b>Key:</b> A 56 bit DES key.",
+        inputType: "string",
+        outputType: "string",
+        args: [
+            {
+                name: "Key",
+                type: "option",
+                value: Cipher.IO_FORMAT1
+            }
+        ]
+    },
+
+
     "Blowfish Decrypt": {
         module: "Ciphers",
         description: "Blowfish is a symmetric-key block cipher designed in 1993 by Bruce Schneier and included in a large number of cipher suites and encryption products. AES now receives more attention.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.",

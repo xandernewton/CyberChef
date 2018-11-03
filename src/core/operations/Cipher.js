@@ -272,6 +272,37 @@ DES uses a key length of 8 bytes (64 bits).`;
     },
 
 
+        /**
+         * Convert 56 bit DES Key to 64 bit DES key
+         * @param {string} input
+         * @param {Object[]} args
+         * @returns {string}
+         */
+    desKey56To64: function (input, args) {
+        const key = Utils.convertToByteArray(input, args[0]),
+            binaryArray = key.map(x => ((x >>> 0).toString(2)).padStart(4, "0")),
+            binaryString = binaryArray.join("");
+        let output = [];
+
+        if (key.length !== 7) {
+            return `Invalid key length: ${key.length} bytes
+    needs a key length of 7 bytes`;
+        } else {
+
+            output = binaryString.match(/.{1,7}/g);
+            for (let x = 0; x < output.length; x++) {
+
+                if ((output[x].match(new RegExp("1", "g") || []).length) % 2 !== 0) {
+                    output[x] = output[x] + "0";
+                } else {
+                    output[x] = output[x] + "1";
+                }
+                output[x] = Utils.hex(parseInt(output[x], 2));
+            }
+        }
+        return output.join("");
+    },
+
     /**
      * RC2 Encrypt operation.
      *

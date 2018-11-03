@@ -24,6 +24,7 @@ OpModules.Ciphers = {
     "DES Decrypt":          Cipher.runDesDec,
     "Triple DES Encrypt":   Cipher.runTripleDesEnc,
     "Triple DES Decrypt":   Cipher.runTripleDesDec,
+    "DES Key Conversion":   Cipher.desKey56To64,
     "Derive PBKDF2 key":    Cipher.runPbkdf2,
     "Derive EVP key":       Cipher.runEvpkdf,
     "RC4":                  Cipher.runRc4,
